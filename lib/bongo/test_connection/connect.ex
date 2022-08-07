@@ -21,6 +21,7 @@ defmodule Bongo.TestConnection.Connect do
     |> Mongo.insert_one("people", get_object())
   end
 
+  @spec test_connection() :: list(map())
   def test_connection do
     {:ok, conn} = get_connection()
 
