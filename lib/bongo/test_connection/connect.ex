@@ -1,6 +1,7 @@
 defmodule Bongo.TestConnection.Connect do
   @moduledoc false
 
+  @spec get_object() :: map()
   defp get_object do
     %{
       name: "John Doe",
