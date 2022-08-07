@@ -13,7 +13,14 @@ defmodule Bongo.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Bongo.PubSub},
       # Adding Mongo
-      {Mongo, [name: :mongo, database: "admin", hostname: "localhost", username: "root", password: "example", pool_size: 2]},
+      %{
+        id: Mongo,
+        start: {Mongo, :start_link, [[
+          name: :mongo, 
+          database: "test-db", 
+          pool_size: 3
+        ]]}
+      },
       # Start the Endpoint (http/https)
       BongoWeb.Endpoint
       # Start a worker by calling: Bongo.Worker.start_link(arg)

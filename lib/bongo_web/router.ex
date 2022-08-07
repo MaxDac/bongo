@@ -39,6 +39,10 @@ defmodule BongoWeb.Router do
       pipe_through :browser
 
       live_dashboard "/dashboard", metrics: BongoWeb.Telemetry
+
+      live_session :default do
+        live "/test", BongoWeb.Live.TestMongoLive
+      end
     end
   end
 
